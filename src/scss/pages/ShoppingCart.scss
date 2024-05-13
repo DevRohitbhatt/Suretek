@@ -1,0 +1,199 @@
+@import '../settings.scss';
+
+
+.shopping-cart-page{
+   
+    .breadcrumb-contaner{
+        display: flex;
+        margin: 40px 0;
+
+        h3{
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 35px;
+            border-right: 2px solid map-get($colors, 'magenta');
+            padding-left: 20px;
+            padding-right: 15px;
+            margin-bottom: 0;
+        }
+
+
+
+        .breadcrumb-div{
+            padding-left: 40px;
+            margin-top: auto;
+            margin-bottom: auto;
+        
+            .breadcrumb{
+                li{
+                    display: inline-block;
+                    font-size: 14px;
+                    margin-right: 10px;
+                    font-weight: 300;
+                    color: map-get($colors, 'black');
+
+                    svg{
+                        font-size: 10px;
+                    }
+
+                    a{
+                        color: map-get($colors, 'black');
+                    }
+                }
+            }
+
+        }
+    }
+
+
+    .cart-contaner{
+        padding-bottom: 100px;
+
+
+        .cart-product{
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-bottom: 40px;
+
+            .header-title{
+                display: flex;
+                border-bottom: 2px solid map-get($colors, 'magenta');
+                border-top: 2px solid map-get($colors, 'magenta');
+                padding-top: 10px;
+                padding-bottom: 10px;
+
+
+                h3{
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 22px;
+                    color: map-get($colors, 'black');
+                    margin-bottom: 0;
+                }
+
+                .pd-h3{
+                    width: 365px;
+                }
+
+                .total-h3{
+                    margin-left: auto;
+                }
+
+            }
+        }
+
+
+        .cart-summary{
+            padding-left: 15px;
+            padding-right: 15px;
+
+            .summary{
+                padding: 15px 30px 30px 30px;
+                background: map-get($colors, 'ghost-white');
+
+                h4{
+                    text-align: center;
+                    border-bottom: 2px solid map-get($colors, 'secondary-grey');
+                    padding-bottom: 15px;
+                    margin-bottom: 40px;
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+
+                .item-sub-total{
+                    display: flex;
+                    margin-bottom: 20px;
+
+                    p:first-child{
+                        font-size: 16px;
+                        font-weight: 300px;
+                    }
+
+                    p:last-child{
+                        font-size: 14px;
+                        font-weight: 600;
+                        margin-left: auto;
+                    }
+                }
+
+                .cart-totals{
+                    display: flex;
+
+                    p:first-child{
+                        font-size: 20px;
+                        font-weight: 500;
+                    }
+
+                    p:last-child{
+                        font-size: 20px;
+                        font-weight: 600;
+                        margin-left: auto;
+                        color: map-get($colors, 'magenta');
+                    }
+
+
+                }
+
+                .checkout-btn{
+                    width: 100%;
+                    margin-top: 40px;
+                    
+                    button{
+                        width: 100%;
+                        padding: 0px 20px;
+                        height: 50px;
+
+                        .sep{
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            right: 50px;
+                            border-left: 1px solid map-get($colors, 'white');
+                        }
+
+                        svg{
+                            font-size: 22px;
+                            position: absolute;
+                            right: 10px;
+                            top: 12px;
+                            font-size: 22px;
+                        
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+
+
+    @include breakpoints(small) {
+        
+        .breadcrumb-contaner{
+           
+            h3{
+                padding-left: 0;
+            }
+        }
+
+
+        .cart-contaner{
+
+            .cart-product{
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+
+            .cart-summary{                
+                padding-left: 0;
+                padding-right: 0;              
+            
+            }
+        }
+
+    }
+
+
+}

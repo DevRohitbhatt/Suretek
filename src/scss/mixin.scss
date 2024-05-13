@@ -1,0 +1,1229 @@
+$global-width: 1440px;
+$global-lineheight: 1;
+$input-line-height: 1.1;
+
+// $global-margin: 16px;
+// $global-padding: 16px;
+// $global-position: 16px;
+
+// $xy-grid: true;
+// $grid-container: $global-width;
+// $grid-columns: 12;
+// $grid-margin-gutters: ( small: 9px, medium: 12px, large: 16px, xlarge: 12px);
+// $grid-padding-gutters: ( small: 9px, medium: 12px, large: 16px, xlarge: 12px);
+// $grid-container-padding: ( small: 60px, medium: 0, large: 0, xlarge: 0);
+// $grid-container-max: $global-width;
+
+$breakpoints: (
+  sm: 424px,
+  small: 767px,
+  medium: 990px,
+  large: 1140px,
+  xlarge: 1250px,
+);
+// $breakpoints: ( small: 0px, medium: 767px, large: 1023px, xlarge:1250px);
+$breakpoint-classes: (small medium large xlarge);
+@mixin size($width, $height: $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin text-hide {
+  background-color: transparent;
+  border: 0;
+  color: transparent;
+  text-shadow: none;
+} //Truncating the text, elipsis by default.
+//
+@mixin text-truncate {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+} //Font icons
+//
+@mixin icon($position: before, $icon: false, $styles: true) {
+  @if $position==both {
+    $position: "before, &:after";
+  }
+  &:#{$position} {
+    // background: -webkit-linear-gradient(50deg, $purple-100 0%, $blue-100 100%);
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    @if $icon {
+      // A particular icon has been specified
+      content: "#{map-get($icons, $icon)}";
+    }
+    @if $styles {
+      // Supportive icon styles required
+      font-family: $font-icon;
+    } // Include any extra rules supplied for the pseudo-element
+    @content;
+  }
+}
+
+@mixin font-smoothing {
+  transform: none;
+}
+
+@mixin transition($property, $duration: 0.25s, $timing: ease-out) {
+  transition: $property $duration $timing;
+}
+
+@mixin layer($zindex: 1) {
+  height: 100%;
+  #{$global-left}: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: $zindex;
+}
+
+@mixin center-block {
+  display: block;
+  margin-#{$global-right}: 0;
+  margin-#{$global-left}: 0;
+}
+
+@mixin full-width-image {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+@mixin border(
+  $width: 1px,
+  $type: solid,
+  $color: $gray-600,
+  $side: all,
+  $radius: false
+) {
+  @if $side== "all" and $radius==true {
+    border: $width $type $color;
+    border-radius: 3px;
+  } @else if $side== "all" {
+    border: $width $type $color;
+  } @else {
+    border-#{$side}: $width $type $color;
+  }
+}
+
+@mixin border-radius($radius: $global-radius) {
+  border-radius: $radius;
+}
+
+@mixin vertical-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin horizontal-center {
+  #{$global-left}: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+@mixin absolute-center {
+  #{$global-left}: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin full-width-image {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* mixin for multiline */
+
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white) {
+  overflow: hidden;
+  position: relative;
+  max-height: $lineHeight * $lineCount;
+  margin-right: -1em;
+  padding-right: 1em;
+  &:before {
+    content: "...";
+    position: absolute;
+    #{$global-right}: 0;
+    bottom: 0;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    #{$global-right}: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: $bgColor;
+  }
+}
+
+// Lightbox mixins
+// Backface visibility
+// Prevent browsers from flickering when using CSS 3D transforms.
+// Default value is `visible`, but can be changed to `hidden`
+// Vendor Prefixes
+//
+// All vendor mixins are deprecated as of v3.2.0 due to the introduction of
+// Autoprefixer in our Gruntfile. They will be removed in v4.
+// - Animations
+// - Backface visibility
+// - Box shadow
+// - Box sizing
+// - Content columns
+// - Hyphens
+// - Placeholder text
+// - Transformations
+// - Transitions
+// - User Select
+// - cursor grab
+// Animations
+@mixin animation($animation) {
+  -webkit-animation: $animation;
+  -o-animation: $animation;
+  animation: $animation;
+}
+
+@mixin animation-name($name) {
+  -webkit-animation-name: $name;
+  animation-name: $name;
+}
+
+@mixin animation-duration($duration) {
+  -webkit-animation-duration: $duration;
+  animation-duration: $duration;
+}
+
+@mixin animation-timing-function($timing-function) {
+  -webkit-animation-timing-function: $timing-function;
+  animation-timing-function: $timing-function;
+}
+
+@mixin animation-delay($delay) {
+  -webkit-animation-delay: $delay;
+  animation-delay: $delay;
+}
+
+@mixin animation-iteration-count($iteration-count) {
+  -webkit-animation-iteration-count: $iteration-count;
+  animation-iteration-count: $iteration-count;
+}
+
+@mixin animation-direction($direction) {
+  -webkit-animation-direction: $direction;
+  animation-direction: $direction;
+}
+
+@mixin animation-fill-mode($fill-mode) {
+  -webkit-animation-fill-mode: $fill-mode;
+  animation-fill-mode: $fill-mode;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// Backface visibility
+// Prevent browsers from flickering when using CSS 3D transforms.
+// Default value is `visible`, but can be changed to `hidden`
+@mixin backface-visibility($visibility) {
+  -webkit-backface-visibility: $visibility;
+  -moz-backface-visibility: $visibility;
+  backface-visibility: $visibility;
+}
+
+// Drop shadows
+//
+// Note: Deprecated `.box-shadow()` as of v3.1.0 since all of Bootstrap's
+// supported browsers that have box shadow capabilities now support it.
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+  box-shadow: $shadow;
+}
+
+// Box sizing
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+  -moz-box-sizing: $boxmodel;
+  box-sizing: $boxmodel;
+}
+
+// CSS3 Content Columns
+@mixin content-columns($column-count, $column-gap: $grid-gutter-width) {
+  -webkit-column-count: $column-count;
+  -moz-column-count: $column-count;
+  column-count: $column-count;
+  -webkit-column-gap: $column-gap;
+  -moz-column-gap: $column-gap;
+  column-gap: $column-gap;
+}
+
+// Optional hyphenation
+@mixin hyphens($mode: auto) {
+  word-wrap: break-word;
+  -webkit-hyphens: $mode;
+  -moz-hyphens: $mode;
+  -ms-hyphens: $mode; // IE10+
+  -o-hyphens: $mode;
+  hyphens: $mode;
+}
+
+// Transformations
+@mixin scale($ratio...) {
+  -webkit-transform: scale($ratio);
+  -ms-transform: scale($ratio); // IE9 only
+  -o-transform: scale($ratio);
+  transform: scale($ratio);
+}
+
+@mixin scaleX($ratio) {
+  -webkit-transform: scaleX($ratio);
+  -ms-transform: scaleX($ratio); // IE9 only
+  -o-transform: scaleX($ratio);
+  transform: scaleX($ratio);
+}
+
+@mixin scaleY($ratio) {
+  -webkit-transform: scaleY($ratio);
+  -ms-transform: scaleY($ratio); // IE9 only
+  -o-transform: scaleY($ratio);
+  transform: scaleY($ratio);
+}
+
+@mixin skew($x, $y) {
+  -webkit-transform: skewX($x) skewY($y);
+  -ms-transform: skewX($x) skewY($y); // See https://github.com/twbs/bootstrap/issues/4885; IE9+
+  -o-transform: skewX($x) skewY($y);
+  transform: skewX($x) skewY($y);
+}
+
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+  -ms-transform: translate($x, $y); // IE9 only
+  -o-transform: translate($x, $y);
+  transform: translate($x, $y);
+}
+
+@mixin translate3d($x, $y, $z) {
+  -webkit-transform: translate3d($x, $y, $z);
+  transform: translate3d($x, $y, $z);
+}
+
+@mixin scale3d($x, $y, $z) {
+  -webkit-transform: scale3d($x, $y, $z);
+  transform: scale3d($x, $y, $z);
+}
+
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+  -ms-transform: rotate($degrees); // IE9 only
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
+@mixin rotateX($degrees) {
+  -webkit-transform: rotateX($degrees);
+  -ms-transform: rotateX($degrees); // IE9 only
+  -o-transform: rotateX($degrees);
+  transform: rotateX($degrees);
+}
+
+@mixin rotateY($degrees) {
+  -webkit-transform: rotateY($degrees);
+  -ms-transform: rotateY($degrees); // IE9 only
+  -o-transform: rotateY($degrees);
+  transform: rotateY($degrees);
+}
+
+@mixin perspective($perspective) {
+  -webkit-perspective: $perspective;
+  -moz-perspective: $perspective;
+  perspective: $perspective;
+}
+
+@mixin perspective-origin($perspective) {
+  -webkit-perspective-origin: $perspective;
+  -moz-perspective-origin: $perspective;
+  perspective-origin: $perspective;
+}
+
+@mixin transform-origin($origin) {
+  -webkit-transform-origin: $origin;
+  -moz-transform-origin: $origin;
+  -ms-transform-origin: $origin; // IE9 only
+  transform-origin: $origin;
+}
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+// Transitions
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin transition-property($transition-property...) {
+  -webkit-transition-property: $transition-property;
+  transition-property: $transition-property;
+}
+
+@mixin transition-delay($transition-delay) {
+  -webkit-transition-delay: $transition-delay;
+  transition-delay: $transition-delay;
+}
+
+@mixin transition-duration($transition-duration...) {
+  -webkit-transition-duration: $transition-duration;
+  transition-duration: $transition-duration;
+}
+
+@mixin transition-timing-function($timing-function) {
+  -webkit-transition-timing-function: $timing-function;
+  transition-timing-function: $timing-function;
+}
+
+@mixin transition-transform($transition...) {
+  -webkit-transition: -webkit-transform $transition;
+  -moz-transition: -moz-transform $transition;
+  -o-transition: -o-transform $transition;
+  transition: transform $transition;
+}
+
+// transition custom
+@function prefix($property, $prefixes: webkit moz o ms) {
+  $vendor-prefixed-properties: transform background-clip background-size;
+  $result: ();
+  @each $prefix in $prefixes {
+    @if index($vendor-prefixed-properties, $property) {
+      $property: -#{$prefix}-#{$property};
+    }
+    $result: append($result, $property);
+  }
+  @return $result;
+}
+
+@function trans-prefix($transition, $prefix: moz) {
+  $prefixed: ();
+  @each $trans in $transition {
+    $prop-name: nth($trans, 1);
+    $vendor-prop-name: prefix($prop-name, $prefix);
+    $prop-vals: nth($trans, 2);
+    $prefixed: append($prefixed, $vendor-prop-name $prop-vals, comma);
+  }
+  @return $prefixed;
+}
+
+@mixin transitionCustom($values...) {
+  $transitions: ();
+  @each $declaration in $values {
+    $prop: nth($declaration, 1);
+    $prop-opts: ();
+    $length: length($declaration);
+    @if $length>=2 {
+      @for $i from 2 through $length {
+        $prop-opts: append($prop-opts, nth($declaration, $i));
+      }
+    }
+    $trans: $prop, $prop-opts;
+    $transitions: append($transitions, $trans, comma);
+  }
+  -webkit-transition: trans-prefix($transitions, webkit);
+  -moz-transition: trans-prefix($transitions, moz);
+  -o-transition: trans-prefix($transitions, o);
+  transition: $values;
+}
+
+// User select
+// For selecting text on the page
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+  -moz-user-select: $select;
+  -ms-user-select: $select; // IE10+
+  user-select: $select;
+}
+
+// mouse grab
+@mixin grab-cursor {
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: -o-grab;
+  cursor: -ms-grab;
+  cursor: grab;
+}
+
+@mixin grabbing-cursor {
+  cursor: move;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: -o-grabbing;
+  cursor: -ms-grabbing;
+  cursor: grabbing;
+}
+
+@mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint==null {
+      @include make-font-size($fs-font-size);
+    } @else {
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+        @media screen and (min-width: $fs-breakpoint) {
+          @include make-font-size($fs-font-size);
+        }
+      }
+    }
+  }
+}
+
+@mixin make-font-size($fs-font-size) {
+  // If $fs-font-size is a list, include both font-size, line-height and letter-spacing
+  @if type-of($fs-font-size) == "list" {
+    font-size: nth($fs-font-size, 1);
+    @if (length($fs-font-size) > 1) {
+      line-height: nth($fs-font-size, 2);
+    }
+    @if (length($fs-font-size) > 2) {
+      letter-spacing: nth($fs-font-size, 3);
+    }
+  } @else {
+    font-size: $fs-font-size;
+  }
+}
+
+//mixin prover form
+@mixin wrap-flx {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+@mixin radio-check-out {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  .cus-radio,
+  .cus-check {
+    font-size: 14px;
+    &:first-child {
+      margin-right: 40px;
+    }
+  }
+}
+@mixin pro-label {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 2.5;
+  letter-spacing: 0.4px;
+}
+@mixin covid19-block {
+  background-color: map-get($colors, primary-main);
+  position: relative;
+  width: 100%;
+  text-align: center;
+  font-family: $montserrat;
+  font-size: 15px;
+  font-weight: 500;
+  color: map-get($colors, white1);
+  padding: 11px 0;
+  letter-spacing: 1px;
+  a {
+    font-weight: 400;
+    text-decoration: underline;
+    color: map-get($colors, white1);
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .info-covid-icon {
+    width: 21px;
+    margin: 0 10px 0 0;
+  }
+  .covid-close-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    top: 17px;
+  }
+}
+@mixin create-sign {
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin: 15.205px 0;
+  @include medium-font;
+  @include breakpoints(small) {
+    margin: 25px 0;
+  }
+  > a {
+    color: map-get($colors, primary-main);
+    border: 1px solid map-get($colors, primary-main);
+    @include border-radius(4px);
+    padding: 12px 30px 12px 12px;
+    // background: url(#{$imagePath}sign-in-arrow.svg) top 50% right 15px no-repeat;
+    text-decoration: none;
+    position: relative;
+    &:after {
+      @include sprite;
+      background-position: 0 -80px;
+      top: auto;
+      background-position: -132px -330px;
+      width: 13px;
+      height: 10px;
+      left: auto;
+      right: 14px;
+      bottom: 15px;
+    }
+  }
+}
+@mixin header-center-link {
+  width: 285px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40%;
+  margin: 0 auto;
+  font-weight: 500;
+  letter-spacing: 1px;
+  @include medium-font;
+  @include breakpoints(medium) {
+    margin: 0;
+  }
+  @include breakpoints(small) {
+    position: relative;
+    text-align: center;
+    width: 107px;
+    margin: 15px 0 0;
+    line-height: 1.4;
+    font-size: 12px;
+  }
+  a {
+    color: map-get($colors, primary-main);
+    &:hover {
+      text-decoration: none;
+    }
+    &:after {
+      background-color: map-get($colors, primary-main);
+      width: 100%;
+    }
+    &:hover {
+      &:after {
+        width: 0;
+      }
+    }
+  }
+}
+
+@mixin search-icons {
+  background-image: url("#{$imagePath}icons-search.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  content: "";
+  position: absolute;
+}
+
+@mixin search-doc-cat-box {
+  border: 1px solid map-get($colors, doc-box-border);
+  position: relative;
+}
+@mixin border-blue {
+  border: 1px solid map-get($colors, primary-main);
+}
+@mixin dashboard-icons {
+  background-image: url("#{$imagePath}dashboard-icons.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 81px;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  padding-bottom: 35px;
+}
+
+@mixin box-shadow-style {
+  @include search-doc-cat-box;
+  @include box-shadow(0 4px 14px 0 #e4eef3);
+  background-color: map-get($colors, white1);
+  position: relative;
+}
+
+@mixin sponsor-border {
+  border-top-color: map-get($colors, grey-dark);
+  border-top-width: 2px;
+}
+@mixin top-doc-border {
+  border-top-color: map-get($colors, top-doc);
+  border-top-width: 2px;
+}
+@mixin sponsor-doc-icon {
+  position: absolute;
+  top: -13px;
+  left: 12px;
+  background-color: map-get($colors, white1);
+  letter-spacing: 0.6px;
+  color: map-get($colors, grey-dark);
+  font-weight: 500;
+  padding: 0 32px 0 10px;
+  @include breakpoints(small) {
+    left: 15px;
+  }
+  &:after {
+    @include sprite;
+    right: 9px;
+    left: auto;
+    top: 2px;
+    background-position: -247px -79px;
+    width: 19px;
+    height: 19px;
+  }
+}
+@mixin top-doc-icon {
+  position: absolute;
+  top: -13px;
+  left: 12px;
+  background-color: map-get($colors, white1);
+  letter-spacing: 0.6px;
+  color: map-get($colors, top-doc);
+  font-weight: 500;
+  padding: 0 10px 0 35px;
+  @include breakpoints(small) {
+    left: 15px;
+  }
+  &:after {
+    @include sprite;
+    background-size: 422px;
+    width: 30px;
+    height: 33px;
+    background-position: -272px -146px;
+  }
+}
+@mixin doc-designation {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  color: map-get($colors, black1);
+  line-height: 2;
+  letter-spacing: 0.6px;
+}
+@mixin endorsements {
+  font-weight: 400;
+  color: map-get($colors, black1);
+  margin-top: 10px;
+  position: relative;
+  padding: 0 0 0 30px;
+  @include reg-font;
+}
+@mixin endorsements-icon {
+  span {
+    position: relative;
+    &:before {
+      @include sprite;
+      background-size: 520px;
+      background-position: -183px -238px;
+      left: -28px;
+      top: -4px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+@mixin profile-icons {
+  background-image: url("#{$imagePath}profile-icons.png");
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  background-position: 0 0;
+  background-size: cover;
+}
+
+@mixin patient-features {
+  text-align: center;
+  max-width: 310px;
+  margin: 0 auto;
+  font-weight: 500;
+  padding-top: 30px;
+  @include breakpoints(small) {
+    font-size: 14px;
+  }
+}
+
+@mixin scheduling-features {
+  text-align: center;
+  max-width: 315px;
+  margin: 0 auto;
+  font-weight: 500;
+  padding-top: 30px;
+  @include breakpoints(small) {
+    font-size: 14px;
+  }
+}
+@mixin medium-font {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.7px;
+  @include breakpoints(small) {
+    font-size: 14px;
+  }
+}
+@mixin bold-font {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 0.7px;
+  @include breakpoints(small) {
+    font-size: 14px;
+  }
+}
+@mixin reg-font {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.7px;
+  @include breakpoints(small) {
+    font-size: 14px;
+  }
+}
+@mixin location-link {
+  @include reg-font;
+  a {
+    border: 1px solid map-get($colors, doc-box-border);
+    padding: 10px 40px;
+    color: map-get($colors, black1);
+    @include border-radius(3px);
+    @include breakpoints(small) {
+      padding: 10px 25px;
+    }
+    &:first-child {
+      margin-right: 20px;
+      @include breakpoints(small) {
+        margin-right: 10px;
+      }
+    }
+    &:hover {
+      color: map-get($colors, white1);
+      background-color: map-get($colors, grey-dark);
+    }
+  }
+}
+// home menu
+@mixin home-menu {
+  display: none;
+  position: absolute;
+  top: 33px;
+  right: -10px;
+  padding: 10px 0;
+  z-index: 1;
+}
+@mixin home-menu-inner {
+  background-color: map-get($colors, white1);
+  padding: 20px 25px 0;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px 0 #dedede;
+  border: solid 1px #dfdfdf;
+  position: relative;
+  @include breakpoints(small) {
+    padding: 10px 15px 0;
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    top: -6px;
+    right: 27px;
+    border: solid #dfdfdf;
+    border-width: 0px 1px 1px 0px;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    background-color: map-get($colors, white1);
+  }
+  .home-menu-links {
+    @include wrap-flx;
+    width: 180px;
+    justify-content: space-between;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #b9b9b9;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    @include breakpoints(small) {
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      width: 150px;
+    }
+    &:last-child {
+      border: 0;
+      margin-bottom: 5px;
+    }
+    > span {
+      &:first-child {
+        font-size: 20px;
+        font-weight: 700;
+        @include breakpoints(small) {
+          font-size: 16px;
+        }
+      }
+      &:last-child {
+        font-size: 20px;
+        font-weight: 400;
+        @include breakpoints(small) {
+          font-size: 16px;
+        }
+      }
+      a {
+        border: none;
+        color: #333333;
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          border-bottom: 2px dotted #333333;
+          left: 0;
+          width: 100%;
+        }
+        &:hover {
+          color: map-get($colors, primary-main);
+          &:after {
+            border-color: map-get($colors, primary-main);
+          }
+        }
+      }
+    }
+  }
+}
+// Filter
+@mixin filter-tab {
+  letter-spacing: 1.1px;
+  font-weight: 700;
+  margin-left: 30px;
+  @include breakpoints(small) {
+    margin: -10px 0 0 0;
+    width: 135px;
+    text-align: right;
+  }
+  a {
+    background-color: map-get($colors, filter-bg);
+    color: map-get($colors, filter-color);
+    border: 1px solid map-get($colors, filter-border);
+    @include border-radius(4px);
+    padding: 13px 20px 13px 60px;
+    position: relative;
+    @include breakpoints(small) {
+      padding: 10px 8px 10px 40px;
+    }
+    &:before {
+      @include sprite;
+      background-position: -175px -192px;
+      left: 10px;
+      top: 10px;
+      width: 60px;
+      height: 25px;
+      @include breakpoints(small) {
+        left: -12px;
+        top: 7px;
+      }
+    }
+  }
+}
+// schedule icons
+@mixin schedule-icons {
+  @include sprite;
+  // content: '';
+  // position: absolute;
+  // left: 0;
+  // top: 0;
+  // background-image:url("#{$imagePath}schedule-icons.png");
+  // background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+}
+// appointment table
+@mixin appointment-table-width {
+  @include wrap-flx;
+  justify-content: space-between;
+  padding: 16px 30px;
+  border-bottom: 2px solid map-get($colors, profile-border);
+  &:last-child {
+    border: 0;
+    padding-bottom: 30px;
+  }
+  div {
+    width: 20%;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.83px;
+    @include breakpoints(large) {
+      font-size: 18px;
+    }
+    @include breakpoints(medium) {
+      font-size: 16px;
+    }
+    &:nth-child(2) {
+      width: 25%;
+    }
+    &:nth-child(3) {
+      width: 22.5%;
+    }
+    &:nth-child(4) {
+      width: 21%;
+    }
+  }
+}
+// Modal head
+@mixin modal-head {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.8px;
+  border-bottom: 1px solid map-get($colors, modal-border);
+  padding: 21px 0;
+  margin-bottom: 25px;
+  @include breakpoints(small) {
+    font-size: 18px;
+  }
+}
+
+@mixin prev-btn {
+  background-color: map-get($colors, white1);
+  border: 1px solid map-get($colors, primary-main);
+  color: map-get($colors, primary-main);
+  margin-right: 20px;
+  text-decoration: none;
+  padding: 15px 0;
+  letter-spacing: 1px;
+  font-size: 18px;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: 500;
+  &:hover {
+    background-color: map-get($colors, grey-lighter);
+  }
+}
+
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    width: 18px;
+    @include breakpoints(medium) {
+      width: 0px;
+    }
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #e3e3e3;
+    padding: 0 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    cursor: pointer;
+    width: 10px;
+    border: 4px solid #e3e3e3;
+    @include breakpoints(medium) {
+      width: 6px;
+      border: 3px solid #e3e3e3;
+      visibility: hidden;
+    }
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #077db4;
+  }
+}
+
+@mixin callout {
+  display: none;
+  position: absolute;
+  content: "";
+  width: 310px;
+  height: auto;
+  background-color: map-get($colors, white1);
+  top: -127px;
+  right: -250px;
+  border: 1px solid map-get($colors, grey-dark);
+  z-index: 1;
+  color: map-get($colors, black1);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  box-sizing: border-box;
+  padding: 10px;
+  @include border-radius(6px);
+  @include box-shadow(0 2px 4px 0 rgba(203, 203, 203, 0.5));
+  &:after {
+    position: absolute;
+    content: "";
+    border: solid map-get($colors, grey-dark);
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 6px;
+    bottom: -7px;
+    left: 40px;
+    @include transform(rotate(45deg));
+    background-color: map-get($colors, white1);
+  }
+  &:hover {
+    .info-text {
+      display: block;
+      top: -130px;
+    }
+  }
+}
+
+@mixin input-home {
+  @include border-radius(4px);
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  font-weight: 300;
+  padding: 20px 20px;
+  @include box-shadow(0 2px 7px 0 #cedae1);
+  border: solid 1px #dfdfdf;
+  background-color: map-get($colors, white1);
+  width: 100%;
+  box-sizing: border-box;
+  @include breakpoints(small) {
+    font-size: 12px;
+    padding: 15px 10px;
+  }
+}
+@mixin search-home {
+  width: 100%;
+  cursor: pointer;
+  background-color: map-get($colors, primary-main);
+  border: none;
+  color: map-get($colors, white1);
+  height: 100%;
+  letter-spacing: 1px;
+  font-size: 16px;
+  font-weight: 500;
+  @include border-radius(5px);
+  @include transition(all 0.2s ease-out 0s);
+  &:hover {
+    background-color: #09608e;
+  }
+  @include breakpoints(small) {
+    padding: 15px 0;
+  }
+}
+@mixin find-home {
+  font-size: 15px;
+  color: map-get($colors, primary-main);
+  font-weight: 700;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  letter-spacing: 0.6px;
+  @include breakpoints(small) {
+    font-size: 13px;
+    left: 10px;
+    top: 15px;
+  }
+}
+@mixin sprite-header {
+  left: 0;
+  top: 0;
+  background-image: url("#{$imagePath}sprite.svg");
+  background-repeat: no-repeat;
+  background-size: 550px;
+}
+@mixin sprite {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url("#{$imagePath}sprite.svg");
+  background-repeat: no-repeat;
+  background-size: 550px;
+}
+
+@mixin select-style {
+  select {
+    &.select {
+      color: map-get($colors, black1);
+    }
+  }
+  select:invalid {
+    color: map-get($colors, select);
+  }
+  select option:first-child {
+    color: map-get($colors, select);
+  }
+  select:invalid option:not(:first-child) {
+    color: map-get($colors, black1);
+  }
+}
+
+// checkmark
+.checkmar-outer {
+  text-align: center;
+}
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: map-get($colors, success-green);
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px map-get($colors, success-green);
+  animation: fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 40px map-get($colors, success-green);
+  }
+}

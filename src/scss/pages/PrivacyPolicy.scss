@@ -1,0 +1,92 @@
+@import "../settings.scss";
+
+
+.privacy-policy-page {
+
+    .content-div{
+        h2{
+            text-align: center;
+            font-size: 48px;
+            font-weight: 500;
+            margin-top: 40px;
+            margin-bottom: 20px;
+
+            @include breakpoints(small){
+                font-size: 32px;
+            }
+
+        }
+
+        p{
+            margin-bottom: 20px;
+            line-height: 1.7;
+
+            span{
+                font-size: 16px;
+                font-weight: 300;
+
+                a{
+                    color: map-get($colors, 'magenta');
+                }
+            }
+
+            strong{
+                font-weight: bold;
+
+                span{
+                    font-weight: 600;
+                }
+
+                u{
+                    text-decoration-thickness: 2px;
+                    
+                    span{
+                        font-weight: 600;
+                        
+                    }
+                }                
+            }
+        }
+
+
+        ul{
+
+            list-style: disc !important;
+            padding-left: 20px;
+
+
+            li{
+                margin-bottom: 15px;
+
+                
+
+
+                span{
+                    a{
+                        color: map-get($colors, 'magenta');
+                    }
+                }
+
+                a{
+                    color: map-get($colors, 'magenta');
+                }
+            }
+
+            li::before{
+                content: '';
+                display: inline-block;
+                height: 5px;
+                width: 5px;
+                background: map-get($colors, 'black');
+                border-radius: 100px;
+                margin-right: 15px;
+                vertical-align: middle;
+            }
+            
+
+
+        }
+
+
+    }
+}

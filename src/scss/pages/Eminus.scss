@@ -1,0 +1,242 @@
+@import '../settings.scss';
+
+
+.eminus-page{
+    width: 100%;
+
+
+    .banner{
+        position: relative;
+        background: url(https://cdn.raveretailer.com/1C4E04E133/2021/11/images/GSR_61a4bfef343a49708541638190591.jpg) no-repeat center center;
+        background-size: cover;
+        padding-top: 200px;
+        padding-bottom: 200px;
+        padding-left: 15px;
+        padding-right: 15px;
+
+
+        .img-div{
+            padding: 15px 20px;
+            width: 200px;
+            margin: 0 auto;
+
+            img{
+                width: 100%;
+            }
+        }
+
+        .txt-div{
+            max-width: 100%;
+            width: 800px;           
+            background: map-get($colors, 'transparent-white');
+            margin-left:auto;
+            margin-right: auto;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            padding: 20px 20px;
+
+            h2{
+                font-size: 24px;
+                font-weight: 700;            
+                color: map-get($colors, 'white');
+                line-height: 2.5;
+            }
+        }
+
+
+        .banner-buy-now{
+
+            a{
+                display: inline-block;
+                border: 1px solid map-get($colors, 'white');
+                padding: 7px 26px;
+                font-size: 26px;
+                color: map-get($colors, 'magenta'); 
+            }
+        }
+    }
+
+
+
+    .content-container {
+        padding: 40px 0;
+
+        .grid-lf{
+            padding: 0 15px;
+            margin: auto;
+        }
+        
+        .grid-rg{
+            padding: 10px;
+
+            h1{
+                font-size: 48px;
+                font-weight: 550;
+                margin-top: 10px;
+                margin-bottom: 25px;
+            }
+
+            p{
+                font-size: 24px;
+                font-weight: 300;
+                color: map-get($colors, 'black');
+                line-height: 1.6;
+            }
+
+            h2{
+                font-size: 36px;
+                margin: 20px 0;
+            }
+
+            ul{
+                li{
+                    list-style: none;
+                    font-size: 24px;
+                    font-weight: 300;
+                }
+            }
+
+        }
+    }
+
+
+    .feature-outer{
+        padding: 40px 0;
+        background-color: map-get($colors, 'primary-grey');
+
+        .circle-inner{
+            background: map-get($colors, 'white');
+            border-radius: 50%;
+            padding: 40px 20px;
+            margin: 7px auto;
+            text-align: center;
+            width: 290px;
+            height: 290px;
+
+            @include large() {
+                width: 250px;
+                height: 250px;
+                padding: 40px 15px;
+            }
+
+            @include medium() {
+                width: 215px;
+                height: 215px;
+                padding: 10px 15px;
+            }
+
+            @include breakpoints(medium) {
+                width: 185px;
+                height: 185px;
+            }
+
+            @include breakpoints(small) {
+                width: 135px;
+                height: 135px;
+            }
+
+
+            @include custombreakpoint(600px) {
+                width: 275px;
+                height: 275px;
+            }
+
+
+
+
+            .circle-div{
+                display: flex;
+                width: 100%;
+                height: 100%;
+
+                .circle-inner-div{
+                    margin: auto;
+
+                    img{
+                        width: 95px;
+
+                        @include large() {
+                            width: 72px;
+                        }
+
+                        @include medium() {
+                            width: 55px;
+                        }
+
+                        @include breakpoints(medium) {
+                            width: 40px;
+                        }
+
+                        @include custombreakpoint(600px) {
+                            width: 72px;
+                         }
+
+                        
+                    }
+        
+                    h3{
+                        font-size: 30px;
+                        font-weight: 500;
+                        margin-bottom: 0px;
+                        line-height: 1.1;
+                        margin-top: 15px;
+
+                        @include large() {
+                            font-size: 26px;
+                        }
+                        
+                        @include medium() {
+                            font-size: 22px;
+                        }
+
+                        @include breakpoints(medium) {
+                            font-size: 16px;
+                        }
+
+                        @include breakpoints(small) {
+                            font-size: 14px;
+                        }
+                       
+                        @include custombreakpoint(600px) {
+                           font-size: 28px;
+                        }
+
+                    }
+                }
+            }
+
+            
+            
+        }
+
+        
+    }
+
+
+
+
+    @include breakpoints(small) {
+
+        .banner{
+
+            background-position: 85% 37% !important;
+    
+            .txt-div{
+    
+                h2{                    
+                    line-height: 40px;
+                }
+            }
+        }
+
+        .feature-outer{
+            padding-left: 15px;
+            padding-right: 15px;
+            text-align: center; 
+
+        }
+
+
+    }
+
+}

@@ -1,0 +1,148 @@
+@import "../settings.scss";
+@import "../colors.scss";
+.address-container {
+  height: 100%;
+  width: 100%;
+  .header {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    h3 {
+      text-align: start;
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+  .content-section {
+    height: 100%;
+    width: 100%;
+    .address-container {
+      height: fit-content;
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background-color: map-get($colors, "profile-border");
+      padding: 15px;
+      display: flex;
+      .left {
+        height: 100%;
+        width: 100%;
+        .address-box {
+          display: flex;
+          gap: 15px;
+          svg {
+            font-size: 30px;
+          }
+          .address {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            h6 {
+              font-size: 16px;
+              font-weight: 500;
+            }
+            p {
+              font-size: 20px;
+              font-weight: 300;
+            }
+          }
+        }
+      }
+      .right {
+        a {
+          text-align: end;
+          text-decoration: underline;
+          font-weight: 300;
+          cursor: pointer;
+        }
+      }
+    }
+
+    #hide{
+      display: none;
+    }
+
+    .form-container {
+      width: 100%;
+      height: fit-content;
+      margin-top: 20px;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .input-full {
+          width: 100%;
+          display: block;
+          padding: 10px 8px;
+          font-size: 14px;
+          color: map-get($colors, "medium-dark");
+          border: 1px solid map-get($colors, "border-color");
+          border-radius: 5px;
+        }
+
+        #input-half {
+          width: 50%;
+        }
+
+        select {
+          background-color: map-get($colors, "white");
+        }
+
+        .row-1 {
+          display: flex;
+          gap: 40px;
+        }
+        .row-6 {
+          display: flex;
+          gap: 40px;
+        }
+        .row-7 {
+          height: 40px;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: end;
+          gap: 20px;
+
+          button {
+            height: 100%;
+            font-size: 16px;
+            padding: 0 12px;
+            background-color: map-get($colors, "magenta");
+            border: none;
+            border-radius: 5px;
+            color: map-get($colors, "white");
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+
+            label {
+              // line-height: 16px;
+              cursor: pointer;
+            }
+          }
+
+          button:hover {
+            background-color: rgba(177, 19, 180, 0.9) !important;
+          }
+        }
+      }
+    }
+  }
+
+  @include breakpoints(sm) {
+    .form-container {
+      #input-half {
+        width: 100% !important;
+      }
+
+      .row-1,
+      .row-6 {
+        flex-wrap: wrap;
+        gap: 20px !important;
+      }
+    }
+  }
+}

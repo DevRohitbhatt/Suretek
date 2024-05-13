@@ -1,0 +1,429 @@
+@import '../settings.scss';
+@import '../colors.scss';
+@import '../heading-typography.scss';
+
+.review-page{
+    @extend %scheduling-page-font;
+    padding: 30px 0;    
+
+    .review{
+        margin-top: 100px;
+    
+        .title{
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-bottom: 5vh;
+            width: 100%;
+            text-align: center;
+        }
+
+        .reviewCard{
+            margin-bottom: 4vh; 
+            display: flex;
+            gap: 2.5vw;
+
+            .left-reviewCard{
+                border: 2px solid map-get($colors, 'secondory-border-color'  );
+                padding: 5px;
+                width: 70%;
+                height: fit-content;
+    
+                .row{
+                    display: flex;
+                    border-bottom: 2px solid map-get($colors, 'bottom-border' );
+                    padding: 7px 15px;
+                    
+                    .left-row{
+                        width: 50%;
+    
+                        .left-row-strong{
+                            font-size: 18px;
+                            font-weight: 600;
+                        }
+                    }
+    
+                    .right-row{
+                        width: 50%;
+    
+                        .right-row-span{
+                            font-size: 16px;
+                            font-weight: 400;
+                        }
+                    }
+                }
+    
+                .row:last-child{
+                    border-bottom: none;
+                }
+            }
+    
+            .right-reviewCard{
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+                gap: 4vh;
+    
+                .pricing-box{
+                    height: fit-content;
+                    border: 1px solid map-get($colors, 'black' );
+                    padding: 20px;
+    
+                    .pricing-name{
+                        font-size: 18px;
+    
+                        b{
+                            font-weight: 500;
+                        }
+                    }
+
+                    .pricing-footer{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+    
+                        .pricing-footer-left{
+                            font-weight: 300;
+                            font-size: 16px;
+                        }
+                        
+                        .pricing-footer-right{
+                            
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+
+                            label{
+                                font-weight: 600;
+                                font-size: 16px;
+                            }
+    
+                            a{
+                                color: map-get($colors, 'trash');
+                                margin-bottom: -7px;
+                            }
+                        }
+                        
+                    }
+    
+                    .pricing-tax{
+                        margin-top: 4px;
+    
+                        .left-label{
+                            font-weight: 500;
+                            font-size: 16px;
+                        }
+                        
+                        .right-label{
+                            font-size: 16px;
+                            font-weight: 300;
+                        }
+                    }
+    
+                    
+    
+                    .form-group{
+                        width: 100%;
+                        margin: 2vh 0 3vh 0;
+                        display: flex;
+                        align-items: center;
+                        height: 40px;
+    
+                        input{
+                            height: 100%;
+                            padding: 15px;
+                            font-size: 16px;
+                            color: #495057;
+                            width: 70%;
+                            border: 1px solid map-get($colors, 'border-color');
+                            border-radius: 3px;
+                        }
+    
+                        button {
+                            height: 100%;
+                            font-size: 16px;
+                            padding: 0 8px;
+                            background-color: map-get($colors, 'magenta');
+                            border: none;
+                            color: map-get($colors, 'white');
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            cursor: pointer;
+    
+                            label{
+                                // line-height: 16px;  
+                                cursor: pointer;
+                            }
+                        }
+    
+                        button:hover{
+                            background-color: rgba(177, 19, 180, 0.9) !important;
+                        }
+                        
+                    }
+                }
+    
+                .pricing-box:first-child{
+                    padding: 25px 20px;
+                }
+            }
+        }
+
+        // footer
+        .review-footer{
+            padding: 24px 0;
+
+            .shipping-methods{
+                h2 {
+                    font-size: 2rem;
+                }
+
+                .method{
+                    border: 2px solid  map-get($colors, 'secondory-border-color');
+                    padding: 16px 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    margin: 1vh 0 5vh 0;
+
+                    input{
+                        width: 18px;
+                        height: 18px;
+                    }
+
+                    label {
+                        font-weight: 300;
+                    }
+                    
+                }
+            }
+
+            .payment-methods {
+                h2 {
+                font-size: 2rem;
+                }
+                
+                .addCard{
+                    width: 100%;
+                    text-align: end;
+                    padding: 15px 8px;
+                    font-weight: 300;
+
+                    a{
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+
+                .payment-card{
+                    .card{
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+                        background-color: rgba(0,0,0,.03);
+                        border-bottom: 1px solid rgba(0,0,0,.125);
+                        padding: .75rem 1.25rem;
+
+                        h6{
+                            font-size: 1rem;
+                            font-weight: 500;
+                        }
+
+                        input{
+                            width: 18px;
+                            height: 18px;
+                        }
+                    }
+                }
+
+                .processPayment{
+                    width: 100%;
+                    display: grid;
+                    place-content: center;
+                    margin: 12vh 0 25vh 0;
+
+                    button{
+                        display: flex;
+                        align-items: center;
+                        gap: 2vw;
+                        padding: 8px 5px 8px 3vw;
+                        background-color: map-get($colors, 'magenta');
+                        color: #fff;
+                        border: none;
+                        cursor: pointer;
+
+                        h6{
+                            font-size: 18px;
+                            font-weight: 100;
+                        }
+                    }
+
+                    button:hover{
+                            background-color: rgba(177, 19, 180, 0.9) !important;
+                    }
+                }
+            }
+        }
+    }
+
+    // media query
+
+    @include breakpoints(medium) {
+        .review{
+    
+            .reviewCard{
+                display: block;
+    
+                .left-reviewCard{
+                    width: 100%;
+        
+                    .row{
+                        display: flex;
+                        
+                        .left-row{
+                            width: 50%;
+                        }
+        
+                        .right-row{
+                            width: 50%;
+                        }
+                    }
+                }
+        
+                .right-reviewCard{
+                    width: 100%;
+                    margin-top: 4vh;
+        
+                    .pricing-box{
+    
+                        .pricing-footer{
+                            
+                            .pricing-footer-right{
+        
+                                a{
+                                    margin-bottom: -4px;    
+                                }
+                            }
+                            
+                        }
+        
+                        
+        
+                        .form-group{
+                            margin: 1vh 0 2vh 0;
+                        }
+                    }
+                }
+            }
+    
+            // footer
+            .review-footer{ 
+    
+                .shipping-methods{
+    
+                    .method{
+    
+                        label {
+                            font-size: 14px;
+                        }
+                        
+                    }
+                }
+    
+                .payment-methods {
+                    
+                    .addCard{
+                        padding: 10px 8px;
+                        font-size: 18px;
+                    }
+    
+                    .processPayment{
+
+                        button{
+                        background-color: map-get($colors, 'magenta');
+                        }
+                    }
+                }
+            }
+        } 
+    }
+    @include breakpoints(small) {
+        .review{
+    
+            .reviewCard{
+                // margin-bottom: 4vh; 
+                display: block;
+                gap: 2.5vw;
+    
+                .left-reviewCard{
+                    width: 100%;
+        
+                    .row{
+                        display: block;
+                        
+                        .left-row{
+                            width: 100%;
+                        }
+        
+                        .right-row{
+                            width: 100%;
+                        }
+                    }
+                }
+        
+                .right-reviewCard{
+                    width: 100%;
+                    margin-top: 4vh;
+        
+                    .pricing-box{
+    
+                        .pricing-footer{
+                            
+                            .pricing-footer-right{
+        
+                                a{
+                                    margin-bottom: -4px;
+                                }
+                            }
+                            
+                        }
+        
+                        
+        
+                        .form-group{
+                            margin: 1vh 0 2vh 0;
+                        }
+                    }
+                }
+            }
+    
+            // footer
+            .review-footer{ 
+    
+                .shipping-methods{
+    
+                    .method{
+    
+                        label {
+                            font-size: 14px;
+                        }
+                        
+                    }
+                }
+    
+                .payment-methods {
+                    
+                    .addCard{
+                        padding: 10px 8px;
+                        font-size: 18px;
+                    }
+    
+                    .processPayment{
+                        background-color: map-get($colors, 'magenta' );
+                    }
+                }
+            }
+        }
+    }
+}

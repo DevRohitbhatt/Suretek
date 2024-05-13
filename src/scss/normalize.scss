@@ -1,0 +1,94 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+body,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+div,
+header,
+menu,
+nav,
+section,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+li,
+h6,
+form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+}
+input,
+button,
+checkbox,
+label {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  color: #000;
+  overflow-x: hidden;
+}
+*:focus {
+  outline: none;
+}
+a {
+  text-decoration: none;
+  border: 0;
+  -webkit-transition: all 0.2s ease-out 0s;
+  -moz-transition: all 0.2s ease-out 0s;
+  -o-transition: all 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
+}
+a:hover {
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease-out 0s;
+  -moz-transition: all 0.2s ease-out 0s;
+  -o-transition: all 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
+}
+.clr {
+  clear: both;
+}
+select::-ms-expand {
+  display: none;
+}
+form {
+  margin: 0;
+  padding: 0;
+}
+img {
+  border: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+.scale {
+  max-width: 100%;
+  height: auto;
+  width: auto\9;
+}
+h1 {
+  letter-spacing: 0.6px;
+}
+
+.hide-for-mobile {
+  @include breakpoints(small) {
+    display: none;
+  }
+}

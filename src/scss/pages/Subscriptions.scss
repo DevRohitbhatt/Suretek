@@ -1,0 +1,45 @@
+@import "../settings.scss";
+@import "../colors.scss";
+
+.autoship-container {
+  width: 100%;
+  height: fit-content;
+
+  .heading {
+    width: 100%;
+    border-bottom: 2px solid map-get($colors, "magenta");
+    padding: 10px 0;
+
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  .product {
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: 1px dashed map-get($colors, "magenta");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    h3 {
+      font-size: 1.75rem;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    a {
+      background-color: map-get($colors, "magenta");
+      color: map-get($colors, 'white' );
+      font-weight: 400;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+    }
+  }
+}

@@ -1,0 +1,166 @@
+@import "../settings.scss";
+@import "../colors.scss";
+
+.information-container {
+  height: 100%;
+  width: 100%;
+
+  .header {
+    display: block;
+    width: 100%;
+
+    h3 {
+      text-align: start;
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  .form-container {
+    height: fit-content;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+
+    .left {
+      width: fit-content;
+      .col {
+        display: flex;
+        flex-wrap: wrap;
+
+        .form-group {
+          flex-shrink: 0;
+          padding: 10px 0;
+          margin-right: 20px;
+
+          label {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 5px;
+          }
+
+          input {
+            width: 350px;
+            display: block;
+            padding: 10px 8px;
+            font-size: 14px;
+            color: map-get($colors, "profile-input-border");
+            border: 1px solid map-get($colors, "profile-input-border");
+            cursor: no-drop;
+          }
+        }
+
+        .birthday {
+          display: block;
+          padding: 10px 0;
+          label {
+            display: block;
+          }
+
+          div {
+            width: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            select {
+              width: 100%;
+              padding: 10px 8px;
+              font-size: 14px;
+              color: map-get($colors, "profile-input-border");
+              border: 1px solid map-get($colors, "profile-input-border");
+              background-color: map-get($colors, "white");
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+    }
+
+    .right {
+      flex-shrink: 0;
+      position: relative;
+      height: 135px;
+      width: 135px;
+      background-color: map-get($colors, "profile-background");
+      padding: 5px;
+      border-radius: 50%;
+
+      img {
+        border-radius: 50%;
+      }
+
+      .pic-input {
+        position: absolute;
+        height: 32px;
+        width: 32px;
+        right: 5%;
+        bottom: 5%;
+        overflow: hidden;
+
+        input {
+          position: relative;
+          opacity: 0;
+          z-index: 2;
+        }
+        label {
+          display: grid;
+          place-content: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background-color: map-get($colors, "secondory-border-color");
+          border-radius: 50%;
+
+          svg {
+            color: map-get($colors, "white");
+          }
+        }
+      }
+    }
+  }
+
+  .last {
+    display: flex;
+
+    label {
+      display: inline-block;
+    }
+
+    a {
+      font-weight: 400;
+      color: map-get($colors, "magenta");
+    }
+  }
+  button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: map-get($colors, "white");
+    background-color: map-get($colors, "magenta");
+    border: none;
+    border-radius: 3px;
+    margin-top: 20px;
+  }
+
+  @include breakpoints(medium){
+    .form-container{
+        flex-wrap: wrap;
+    }
+  }
+  @include breakpoints(sm) {
+    .form-container .left .col {
+      .form-group input {
+        width: 250px;
+      }
+
+      .birthday div {
+        width: 250px;
+      }
+    }
+  }
+}

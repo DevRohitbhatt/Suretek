@@ -1,0 +1,21 @@
+$body: (null: (16px, 1.5), medium: (16px, 1.5), large: (16px, 1.5), xlarge: (16px, 1.5));
+$scheduling-page: (null: (12px), medium: (14px), large: (16px), xlarge: (18px));
+
+
+
+body,
+%body,
+.body {
+  @include font-size($body);
+  font-family: $roboto;
+  font-weight: normal;
+}
+
+
+%scheduling-page-font,
+.scheduling-page-font {
+  @include font-size($scheduling-page);
+  font-family: $roboto;
+  font-weight: normal;
+}
+

@@ -1,0 +1,136 @@
+@import '../settings.scss';
+@import '../colors.scss';
+@import '../heading-typography.scss';
+
+.my-account{
+    height: 100%;
+    width: 100%;
+    margin-bottom: 25vh;
+
+    .account-heading{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 2.5vw;
+        margin: 10vh 0;
+        // background-color: red;
+
+        h3{
+            font-size: 32px;
+            font-weight: 500;
+            padding: 0 15px;
+            border-right: 2px solid map-get($colors, 'magenta');
+        }
+
+        .page-path > ul{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            li{
+                font-size: 14px;
+                font-weight: 400;
+            }
+
+            li:nth-child(even){
+                color : map-get($colors, 'magenta');
+            }
+        }
+    }
+
+    .main-section{
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        gap: 10px;
+
+        .side-bar{
+            background-color: #f5f5f7;
+            height: fit-content;
+            width: 350px;
+            padding: 0 32px;
+
+            li:nth-child(1){
+                padding: 20px 0 10px 0;
+                border-bottom: 2px solid map-get($colors, 'profile-bottom-border');
+
+                a{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    color: map-get($colors, 'magenta' );
+
+                    span{
+                        font-size: 20px;
+                        font-weight: 500;
+
+                        small{
+                            font-weight: 400;
+                        }
+                    }
+
+                    span:hover{
+                        text-decoration: underline;
+                    }
+                }
+
+                .ml-3{
+                    margin-left: 3rem;
+                    padding: 10px 0;
+                }
+            }
+
+            .list-item{
+                a{
+                color: map-get($colors, 'black');
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                padding: 20px 0px;
+                border-bottom: 1px dashed map-get($colors, 'magenta');
+
+                span{
+                    display: block;
+                    white-space: nowrap;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+                }
+            }
+
+            .list-item:last-child{
+                a{
+                    border-bottom: none;
+                }
+            }
+        }
+
+    }
+
+    @include breakpoints(small){
+        .account-heading{
+            margin: 8vh 0;
+    
+            h3{
+                width: fit-content;
+                margin-bottom: 1vw;
+                padding: 0 15px 0 0;
+            }
+        }
+    
+        .main-section{
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+    
+            .side-bar{
+                background-color: map-get($colors, 'profile-border');
+                width: 100%;
+                padding: 0 25px;
+                margin-bottom: 20px;
+            }
+    
+        }
+    }
+}

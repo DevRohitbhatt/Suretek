@@ -1,0 +1,59 @@
+// font, color updated as per styleguild, locked as per styleguild please do not edit until style guild change
+$h1-font-sizes: (null: (24px, normal), medium: (24px, normal), large: (24px, normal), xlarge: (28px, normal));
+$h2-font-sizes: (null: (20px, normal), medium: (20px, normal), large: (22px, normal), xlarge: (24px, normal));
+$h3-font-sizes: (null: (21px, 28px), medium: (21px, 28px), large: (21px, 28px), xlarge: (25px, 35px));
+$h4-font-sizes: (null: (14px, normal), medium: (14px, normal), large: (16px, normal), xlarge: (16px, normal));
+$h5-font-sizes: (null: (18px, normal), medium: (18px, normal), large: (20px, normal), xlarge: (20px, normal));
+
+h1,
+%h1,
+.h1 {
+  @include font-size($h1-font-sizes);
+  font-family: $roboto;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+}
+
+h2,
+%h2,
+.h2 {
+    @include font-size($h2-font-sizes);
+    font-family: $roboto;
+    font-weight: normal;
+}
+// h2:lang(vi),
+// .h2:lang(vi) {
+//     font-family: $maggi-font-MaggiSansVnuRegular;
+// }
+
+h3,
+%heading3,
+.heading3 {
+    @include font-size($h3-font-sizes);
+    font-family: $roboto;
+    font-weight: normal; 
+}
+
+h4,
+%h4,
+.h4 {
+    @include font-size($h4-font-sizes);
+    font-family: $roboto;
+    font-weight: normal;
+}
+
+h5,
+%h5,
+.h5 {
+    @include font-size($h5-font-sizes);
+    font-family: $roboto;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    position: relative;
+}
+
+$roboto:'Roboto', sans-serif;
+$lato:'Lato', sans-serif;
+$montserrat:'Montserrat', sans-serif;
+
+

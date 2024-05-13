@@ -1,0 +1,122 @@
+@import "../settings.scss";
+
+
+.dmca-page {
+
+    .content-div{
+        h2{
+            text-align: center;
+            font-size: 48px;
+            font-weight: 500;
+            margin-top: 40px;
+            margin-bottom: 20px;
+
+            @include breakpoints(small){
+                font-size: 32px;
+            }
+
+        }
+
+        p{
+            margin-bottom: 20px;
+            line-height: 1.7;
+
+            span{
+                font-size: 16px;
+                font-weight: 300;
+
+                a{
+                    color: map-get($colors, 'magenta');
+                }
+            }
+
+            strong{
+                font-weight: bold;
+
+                span{
+                    font-weight: 600;
+                }
+
+                u{
+                    text-decoration-thickness: 2px;
+                    
+                    span{
+                        font-weight: 600;
+                        
+                    }
+                }                
+            }
+
+            .caution-txt{
+                color: map-get($colors, 'red');
+                background: map-get($colors, 'light-pink');
+            }
+
+
+        }
+
+        .outer-lists{
+            padding-left: 20px;
+
+            li.outer-list{
+                margin-bottom: 15px;
+                color: map-get($colors, 'gray');
+
+                span{
+                    display: inline-block;
+                    width: 97%;
+                    vertical-align: top;
+                    padding-left: 15px;
+                }
+            }
+
+            li.outer-list::before{
+                content: '';
+                display: inline-block;
+                height: 5px;
+                width: 5px;
+                background: map-get($colors, 'gray');
+                border-radius: 100px;
+                vertical-align: middle;
+            }
+
+
+            .inner-lists{
+                padding-left: 30px;
+
+                li{
+                    margin-bottom: 15px;
+                    color: map-get($colors, 'gray');
+
+                    span{
+                        display: inline-block;
+                        width: 97%;
+                        vertical-align: top;
+                        padding-left: 15px;
+                    }
+                }
+    
+                li::before{
+                    content: '';
+                    display: inline-block;
+                    height: 4px;
+                    width: 4px;
+                    background: map-get($colors, 'white');
+                    border-radius: 100px;                   
+                    vertical-align: middle;
+                    border: 1px solid map-get($colors, 'gray');
+                }
+
+                
+
+            }
+
+
+
+
+        }
+
+
+
+    }
+}

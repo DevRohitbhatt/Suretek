@@ -1,0 +1,52 @@
+@import '../settings.scss';
+
+
+.home-page{
+
+    text-align:center;
+    padding: 30px 30px 50px 30px;
+
+    .heading{
+        font-size: 50px;
+        font-weight: 800;
+        color: map-get($colors, 'dark-grey');
+        margin-bottom: 20px;
+        padding: 0 15px;
+    }
+
+    .paragraph{   
+        font-family: Chyprenorm;
+        font-size: 24px;
+        font-weight: 300;
+        color: map-get($colors, 'black');
+    }
+
+    .frame-div {
+        padding: 50px 0;
+    }
+
+
+    .gn-line{
+        height:2px;
+        border-width:0;
+        color: map-get($colors, 'secondory-green');
+        background-color: map-get($colors, 'secondory-green');
+    }
+
+
+    .pg-make{
+        margin-top: 80px;
+        font-size: 24px;
+    }
+
+    @include breakpoints(small) {
+
+        padding: 30px 0px 50px 0px;
+
+        .frame-div iframe{
+            max-width: 100%;
+            max-height: 200px;
+        }
+    }
+
+}

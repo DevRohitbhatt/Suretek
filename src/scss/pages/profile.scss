@@ -1,0 +1,54 @@
+@import '../settings.scss';
+@import '../colors.scss';
+@import '../heading-typography.scss';
+
+.content-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-left: 10px;
+
+  .list-item {
+    // margin-left: 20px;
+    height: 130px;
+    a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 210px;
+        height: 100%;
+        border: 2px solid map-get($colors, 'profile-border' );
+        color: map-get($colors, 'magenta' );
+
+        svg{
+            display: block;
+            font-size: 50px;
+            // font-weight: 300; font-weight not working
+        }
+
+        span{
+            color: map-get($colors, 'black' );
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+  }
+}
+
+@include breakpoints (small){
+    .content-container {
+        margin: 0px;
+      
+        .list-item {
+          width: 100%;
+          a {
+              width: 100%;
+          }
+        }
+      }
+}

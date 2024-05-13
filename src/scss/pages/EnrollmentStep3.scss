@@ -1,0 +1,181 @@
+@import '../settings.scss';
+
+
+.enrollment-step3-page{
+    max-width: 1140px;
+    text-align: center;
+    padding: 30px 30px 50px 30px;
+    margin: auto;
+
+    .logo-2 {
+        width: 250px;
+    }
+    
+    .title-h2{
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 28px;
+        text-align: center;
+        letter-spacing: 4px;
+        color: map-get($colors, 'black');
+    }
+    
+    .title-h4{
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 22px;
+        text-align: center;
+        letter-spacing: 2px;
+        color: map-get($colors, 'black');
+    }
+    
+    
+    
+    
+    .sign-div{
+        width: 700px;
+        margin: auto;
+        max-width: 100%;
+
+        .info-div{
+           margin-bottom: 30px;
+            border-top: 1px solid map-get($colors, 'border-color');
+            padding-top: 30px;
+
+
+           p{
+            font-weight: 300;
+           }
+        }
+
+
+    }
+    
+    
+    
+    .inp-text{
+        display: block;
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: map-get($colors, 'medium-dark');
+        background-color: map-get($colors, 'white');
+        background-clip: padding-box;
+        border: 1px solid map-get($colors, 'border-color');
+        border-radius: 0.25rem;
+    }
+    
+    
+    
+    
+    .span-link{
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        border: 1px solid map-get($colors, 'border-color');
+        background-color: map-get($colors, 'solitude');
+        height: 38px;
+        color: map-get($colors, 'medium-dark');
+    }
+    
+    
+    .select-box{
+        display: block;
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: map-get($colors, 'input-color');
+        background-color: map-get($colors, 'white');
+        background-clip: padding-box;
+        border: 1px solid map-get($colors, 'border-color');
+        border-radius: 0.25rem;
+        height: 38px;
+    }
+    
+    .select-box.month{
+        width: 90%;
+    
+        @include breakpoints(small) {
+            width: 100%;
+        }  
+    }
+    
+    .select-box.day{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    
+        @include breakpoints(small) {
+            width: 100%;
+        } 
+    }
+    
+    .select-box.year{
+        width: 90%;
+        margin-left: auto;
+        margin-right: 0;
+    
+        @include breakpoints(small) {
+            width: 100%;
+        } 
+    }
+    
+    
+    .right-line{
+        text-align: left;
+        position: relative;
+    
+        .line{   
+            width: 70%;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            height: 2px;
+            background: map-get($colors, 'black');
+            position: absolute;
+            right: 0;
+        }
+    
+        @include breakpoints(small) {
+            .line{   
+                width: 55%;
+            }
+        }  
+    }
+    
+    
+    .btn-next{
+        color: map-get($colors, 'white');
+        background-color: map-get($colors, 'magenta');
+        border-radius: 0;
+        position: relative;
+        width: 250px;
+        font-size: 16px;
+        height: 40px;
+        border:none;
+    
+        svg{
+            position: absolute;
+            right: 10px;
+            top: 8px;
+        }
+    }
+
+
+
+    @include breakpoints(small) {
+        max-width: 100%;
+        padding: 30px 0 50px 0;
+    }
+
+}
+
+
+
+
+
+
+

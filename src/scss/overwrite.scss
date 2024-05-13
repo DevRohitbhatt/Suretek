@@ -1,0 +1,68 @@
+.container {
+    max-width: 1440px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    main, header, footer {
+        max-width: 1230px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    @include breakpoints(xlarge) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    @include breakpoints(small) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    @include breakpoints(sm) {
+      // to look better in mobile devices
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    
+    &.full-width-layout{
+      max-width: 100%;
+      width: 100%;
+    
+      header {
+        max-width: 1230px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    
+      main {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    
+    
+      @include breakpoints(xlarge) {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+      @include breakpoints(small) {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+      @include breakpoints(sm) {
+        // to look better in mobile devices
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+    }
+    
+}
+
+
+
+
+ .hide-for-medium {
+  @include breakpoints(medium) {
+    display:none !important;
+  }
+}

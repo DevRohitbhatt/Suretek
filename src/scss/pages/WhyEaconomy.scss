@@ -1,0 +1,71 @@
+@import '../settings.scss';
+
+.why-eaconomy-page{
+
+
+    .logo-grid{
+        margin: 40px 0;
+
+        img{
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            float: left;
+        }
+
+        p{
+            span{
+                span{
+                    color: map-get($colors, 'dark-grey');
+                    font-size: 36px;
+                    font-weight: 500;
+                }
+            }
+
+            em{
+                span{
+                    font-size: 14px;
+                    strong{
+                        span{
+                            color:map-get($colors, 'dark-grey'); 
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .title-grid{
+        margin-bottom: 20px;
+
+        p{
+            span{
+                color: map-get($colors, 'aqua');
+                font-size: 24px;
+            }
+        }
+    }
+
+    .content-grid{
+        div{
+            img{
+                max-width: 100%;
+                float: right;
+                width: 500px;
+                height: 333px;
+
+                @include breakpoints(small) {
+                    height: auto;
+                }
+            }
+        }
+        p{
+            font-size: 18px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+    }
+
+
+}

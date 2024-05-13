@@ -1,0 +1,41 @@
+/* stylelint-disable */
+
+$font-path: 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap';
+
+// fonts
+@font-face {
+  font-family: 'Roboto', sans-serif;
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+  src: url('#{$font-path}') format('woff2'),
+       url('#{$font-path}') format('woff')  
+ 
+};
+
+@font-face {
+  font-family: 'Lato', sans-serif;
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+  src: url('#{$font-path}') format('woff2'),
+       url('#{$font-path}') format('woff')  
+ 
+};
+
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+  src: url('#{$font-path}') format('woff2'),
+       url('#{$font-path}') format('woff')  
+ 
+};
+
+$roboto: 'Roboto', sans-serif;
+$lato: 'Lato', sans-serif;
+$montserrat: 'Montserrat', sans-serif;
+
+@import './heading-typography.scss';
+@import './font-typography.scss';
